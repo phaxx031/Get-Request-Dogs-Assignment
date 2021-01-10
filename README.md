@@ -1,1 +1,1 @@
-# Get-Request-Dogs-Assignment
+### Boilerplate app structure for Get-Request-Dogs-Assignment
