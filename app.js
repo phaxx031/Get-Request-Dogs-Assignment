@@ -1,8 +1,7 @@
 'use strict';
 
-function getDogImage() {
-    let numDogs = $('#dropdown-list').val();
-    fetch('https://dog.ceo/api/breeds/image/random/' + numDogs)
+function getDogImage(realDogsValue) {
+    fetch(`https://dog.ceo/api/breeds/image/random/${realDogsValue}`)
     .then(response => response.json())
     .then(responseJson =>
         displayResults(responseJson))
@@ -22,10 +21,12 @@ function displayResults(responseJson) {
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        getDogImage();
+        $("#dropdown-list").val();
+        let numDogsValue = $("#dropdown-list").val();
+        console.log(numDogsValue);
+        getDogImage(numDogsValue);
     });
 }
-
 
 $(function() {
     console.log('App loaded! Waiting for submit!')
